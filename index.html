@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/cube.js"></script>
+    <script src="./lib/async.js"></script>
+    <script src="./lib/solve.js"></script>
+</head>
+
+<body>
+    <script>
+        const randomCube = Cube.random();
+        Cube.asyncInit('./lib/worker.js', function () {
+            // Cannot read property '24092' of null
+            console.log(randomCube.solve());
+        });
+        
+
+        // Cube.asyncInit('./lib/worker.js', function () {
+        //     //cube.toJSON is not a function
+        //     Cube.asyncSolve(randomCube, function (algorithm) {
+        //         console.log(algorithm);
+        //     });
+        // });
+    </script>
+</body>
+
+</html>
